@@ -1,0 +1,19 @@
+Specyfikatory typów mogą być następujące:
+a) %d - integer
+b) %e - double
+c) %f - float
+
+Pomiędzy znakiem % i literą przyporządkowaną danemu typowi można określić, na ilu polach ma zostac wyświetlona liczba np:
+%7.2 - oznacza przyznanie siedmiu pól na liczbę typu float w tym dwóch pól na jej część ułamkową;
+%4d - oznacza przyznanie czterech pól na liczbę typu całkowitego;
+
+Przykład:
+"%6.5f\n", Math.PI 
+na wydruk liczby Pi zostaje przeznaczonych 6 pól, w tym pięć na część ułamkową
+rezultat działania programu = 3,14159
+
+>>> System.out.printf("Liczba Pi = " + "%6.5f", Math.PI);
+    Metoda printf umożliwia formatowanie wyświetlanych danych.
+    Jej składania ma postać:
+    String format;
+    System.out.printf(format, arg1, arg2, ...,argn);
