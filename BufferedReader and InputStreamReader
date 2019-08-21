@@ -1,0 +1,50 @@
+# Procedura korzystania ze strumieni tekstowych wejściowych powiązanych ze
+  standardowym wejściem (konsola) – wprowadzanie danych z klawiatury
+
+1) Należy utworzyć obiekt (np. typu InputStreamReader ), powiązany ze źródłem danych (np. System.in )
+InputStreamReader wejscie = new InputStreamReader( System.in );
+2) W celu buforowania znaków pochodzących z obiektu powiązanego ze źródłem danych np. typu
+InputStreamReader należy utworzyć obiekt klasy BufferedReader
+lub
+BufferedReader bufor = new BufferedReader( wejscie );
+BufferedReader bufor = new BufferedReader( wejscie, int ); //int-rozmiar bufora
+3) Znaki mogą być odczytywane metodami obiektu buforującego:
+int read()
+np. int dana = bufor.read()
+4) Całe ciągi znaków mogą być odczytane za pomocą:
+int read(char[] cbuf, int off, int len) – metoda, która czyta do tablicy cbuf od indeksu off liczbę
+len znaków i zwraca przez return liczbę faktycznie odczytanych znaków
+5) Całe wiersze mogą być odczytywane za pomocą metody obiektu buforującego:
+String readLine()
+np. String dana = bufor.readLine(),
+która czyta łańcuch typu String lub jego wartość null, gdy będzie osiągnięty koniec łańcucha (czyli
+koniec linii oznaczony znakami np.: ’\n’,’\r’ )
+6) Analiza odczytanego łańcucha może być przeprowadzona za pomocą obiektu klasy typu StringTokenizer
+StringTokenizer bon = new StringTokenizer(bufor.readLine());
+
+Przykład:
+Napisz program który oblicza pole prostokąta. Wartości boków a i b wprowadzamy z klawiatury. W programie należy przyjąc, że zmienne a,b
+oraz pole są typu double.
+
+public class Main10 {
+
+    public static void main(String[] args)
+        throws IOException
+    {
+        double a, b, rectangleArea;
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("Program oblicza pole prostokąta");
+        System.out.println("Podaj bok a: ");
+        a = Double.parseDouble(br.readLine());
+        System.out.println("Podaj bok b: ");
+        b = Double.parseDouble(br.readLine());
+
+        rectangleArea = a*b;
+
+        System.out.println("Pole prostokąta o boku a = " + a + " i boku b = " + b);
+        System.out.println(" wynosi " + rectangleArea + ".");
+
+    }
+}
